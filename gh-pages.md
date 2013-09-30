@@ -14,15 +14,19 @@ template: gh-pages-template.mustache
 
 --
 
-### It is difficult to install Ruby.
-
-* not like installing a consumer app
-* installing Ruby is the single biggest obstacle
-* every system is unique and some are problematic
+<img src="http://learn-rails.com/images/learn-rails-book-cover.jpg" height="400px">
 
 --
 
-### Not recommended.
+### #1 It is difficult to install Ruby.
+
+* installing Ruby is the beginner's first big obstacle
+* not like installing a consumer app
+* every system is unique
+
+--
+
+### Not recommended
 
 * Rails Installer
 * Tokaido (not yet)
@@ -30,10 +34,10 @@ template: gh-pages-template.mustache
 
 --
 
-### Is it difficult to install Ruby?
+### Recommended
 
-* use RVM, see the [install Ruby on Rails](http://railsapps.github.io/installing-rails.html) article
-* or use [Nitrous.io](https://www.nitrous.io/) for a pre-installed development environment
-* mentors should become familiar with current best options
+* see the [install Rails](http://railsapps.github.io/installing-rails.html) article, use RVM
+* use [Nitrous.io](https://www.nitrous.io/) when all else fails
+* mentors: learn about the newest best options
 
 --
