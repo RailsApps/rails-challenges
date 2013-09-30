@@ -1,79 +1,534 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Cleaver</title>
+  <style type="text/css">
+    body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f7f7f7;
+  font-size: 100%;
+}
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Rails-challenges : Slideshow about the difficulties faced by Rails beginners." />
+#wrapper {
+  width: 850px;
+  height: 600px;
+  overflow: hidden;
+  margin: 80px auto 0 auto;
+}
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+/* styles for print layout */
+#wrapper.nohide {
+  overflow: auto;
+  height: auto;
+  box-shadow: none;
+}
 
-    <title>Rails-challenges</title>
-  </head>
+#wrapper.nohide .slide {
+  margin-bottom: 30px;
+}
+/* /styles */
 
-  <body>
+.slide {
+  width: auto;
+  height: 540px;
+  padding: 30px;
+  font-weight: 200;
+  font-size: 200%;
+  line-height: 1.375;
+}
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/RailsApps/rails-challenges">View on GitHub</a>
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
 
-          <h1 id="project_title">Rails-challenges</h1>
-          <h2 id="project_tagline">Slideshow about the difficulties faced by Rails beginners.</h2>
+.controls .arrow {
+  width: 0; height: 0;
+  border: 30px solid #333;
+  float: left;
+  margin-right: 30px;
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/RailsApps/rails-challenges/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/RailsApps/rails-challenges/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+.controls .prev {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+  border-left-width: 0;
+  border-right-width: 50px;
+}
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+.controls .next {
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+
+  border-left-width: 50px;
+  border-right-width: 0;
+}
+
+.controls .prev:hover {
+  border-right-color: #888;
+  cursor: pointer;
+}
+
+.controls .next:hover {
+  border-left-color: #888;
+  cursor: pointer;
+}
+
+.slide h1 {
+  font-size: 300%;
+  line-height: 1.2;
+  text-align: center;
+  margin: 170px 0 0;
+}
+
+.slide h2 {
+  font-size: 100%;
+  line-height: 1.2;
+  margin: 5px 0;
+  text-align: center;
+  font-weight: 200;
+}
+
+.slide h3 {
+  font-size: 140%;
+  line-height: 1.2;
+  border-bottom: 1px solid #aaa;
+  margin: 0;
+  padding-bottom: 15px;
+}
+
+.slide ul {
+  padding: 20px 0 0 60px;
+  font-weight: 200;
+  line-height: 1.375;
+}
+
+.slide .author h1.name {
+  font-size: 170%;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.slide .author h3 {
+  font-weight: 100;
+  text-align: center;
+  font-size: 95%;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #44a4dd;
+}
+
+a:hover {
+  color: #66b5ff;
+}
+
+pre {
+  font-size: 60%;
+  line-height: 1.3;
+}
+
+code {
+  background-color: #e7e7e7;
+}
+
+pre > code {
+  background-color: inherit;
+}
+
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 3px;
+  background-color: #b4b4b4;
+
+  -webkit-transition: width 0.1s ease-out;
+  -moz-transition: width 0.1s ease-out;
+  -o-transition: width 0.1s ease-out;
+  transition: width 0.1s ease-out;
+}
+
+@media (max-width: 850px) {
+  #wrapper {
+    width: auto;
+  }
+
+  body {
+    font-size: 70%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .slide h1 {
+    margin-top: 120px;
+  }
+
+  .controls .prev, .controls .prev:hover {
+    border-right-color: rgba(135, 135, 135, 0.5);
+  }
+
+  .controls .next, .controls .next:hover {
+    border-left-color: rgba(135, 135, 135, 0.5);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  #wrapper {
+    margin-top: 10px;
+    height: 340px;
+  }
+
+  .slide {
+    padding: 10px;
+    height: 340px;
+  }
+
+  .slide h1 {
+    margin-top: 50px;
+  }
+
+  .slide ul {
+    padding-left: 25px;
+  }
+}
+
+    .help {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: 0; right: 0;
+  z-index: -1;
+}
+
+@media (max-width: 480px) {
+  .help {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <div class="progress">
+    <div class="progress-bar"></div>
+  </div>
+
+<div id="wrapper">
+    <section class="slide"><h1>Cleaver</h1>
+
+<h2>30-second slideshows for hackers</h2></section>
+    <section class="slide"><h3>What is Cleaver?</h3>
+
+<p>Cleaver turns this:</p>
+
+<pre><code>title: My Slideshow
+output: slideshow.html
+
+--
+
+# Hello, world!
+## This is my slideshow
+
+--
+
+### How many widgets can we sell?
+
+Based on our factors, we can sell **20 million** widgets.
+</code></pre></section>
+    <section class="slide"><h3>What is Cleaver?</h3>
+
+<p><strong>Into a slideshow like this</strong>.</p>
+
+<p>Cleaver uses a simple <a href="http://daringfireball.net/projects/markdown/">Markdown</a>
+format.</p>
+
+<ul>
+<li>Simply write your slides in Markdown</li>
+<li>... and separate them with <code>--</code></li>
+</ul>
+
+<p>Cleaver comes with a stylesheet that looks good by default, but that you
+can extend at your heart's desire.</p></section>
+    <section class="slide"><h3>Quick Start</h3>
+
+<p>Get cleaver from NPM</p>
+
+<pre><code>npm install -g cleaver
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>And run it against your shiny new presentation</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<pre><code>cleaver path/to/presentation.md
+</code></pre>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>Next we'll talk about setting up a presentation (it's super quick!)</p></section>
+    <section class="slide"><h3>Metadata</h3>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>Each presentation contains metadata, for example:</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<pre><code>title: My Presentation
+author:
+    name: "Jordan Scales"
+    url: "http://jordanscales.com"
+    twitter: "@jdan"
+style: /absolute/path/to/style.css
+output: something.html
+</code></pre>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<p>Let's break this chunk down on the next slide.</p></section>
+    <section class="slide"><h3>Metadata Fields</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<ul>
+<li><strong>title</strong>: The title of your presentation</li>
+<li><strong>author</strong>: Some fields to populate an optional author slide at the end</li>
+<li><strong>style</strong>: An optional external stylesheet to load</li>
+<li><strong>output</strong>: Where to save your file (<em>default: FILENAME-cleaver.html</em>)</li>
+</ul></section>
+    <section class="slide"><h3>Metadata Fields</h3>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<ul>
+<li><strong>controls</strong>: Option to render navigation buttons (<em>default: true</em>)</li>
+<li><strong>agenda</strong>: Option whether or not to insert an agenda slide (similar to a table of contents) after the title (<em>default: false</em>)</li>
+<li><strong>encoding</strong>: A specified content encoding (<em>default: utf-8</em>)</li>
+</ul></section>
+    <section class="slide"><h3>Metadata Fields (Advanced)</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
+<ul>
+<li><strong>template</strong>: Location of the template used to render the slides (default:
+<em>default.mustache</em>)</li>
+<li><strong>layout</strong>: Location of the layout template used to render everything (default:
+<em>layout.mustache</em>)</li>
+</ul></section>
+    <section class="slide"><h3>Other Slides</h3>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Rails-challenges maintained by <a href="https://github.com/RailsApps">RailsApps</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+<p>Slides are separated by <code>--</code> and are written in markdown.</p>
 
-    
+<p>h1's and h2's (denoted <strong>#</strong> and <strong>##</strong> respectively) contain styling to
+center and vertically align themselves for intro slides.</p>
 
-  </body>
+<p>h3's (denoted <strong>###</strong>) contain a bottom border for use as a slide header.</p></section>
+    <section class="slide"><h3>Author Slide</h3>
+
+<p>If your metadata contains author information (name, url, twitter), an author
+slide will be inserted at the end of your presentation.</p></section>
+    <section class="slide"><h3>That's all, folks!</h3>
+
+<p>Seriously, that's it. Cleaver is perfect for quick slideshows that you can
+create using a comfortable format. No extra software or text boxes required.</p>
+
+<p>Check us out <a href="http://github.com/jdan/cleaver">on GitHub</a>.</p>
+
+<p>With &lt;3,<br/>Jordan</p></section>
+    <section class="slide"><div class="author">
+  <h1 class="name">Jordan Scales</h1>
+  <h3 class="twitter">
+    <a href="http://twitter.com/@jdan" tabindex="-1">@jdan</a>
+  </h3>
+  <h3 class="url">
+    <a href="http://jordanscales.com" tabindex="-1">http://jordanscales.com</a>
+  </h3>
+</div>
+</section>
+</div>
+  <div class="controls">
+    <div class="arrow prev"></div>
+    <div class="arrow next"></div>
+  </div>
+
+<div class="help" style="text-align: center; position: absolute; bottom: 20px">
+  <div>
+    <p><em>Use the buttons or arrow keys to switch slides</em></p>
+  </div>
+
+  <iframe src="http://ghbtns.com/github-btn.html?user=jdan&repo=cleaver&type=watch&count=true"
+    allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+
+  <iframe src="http://ghbtns.com/github-btn.html?user=jdan&repo=cleaver&type=fork&count=true"
+    allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+</div>
+
+<script type="text/javascript">
+  /**
+ * Takes the last slide and places it at the front.
+ */
+function goBack() {
+  var wrapper = document.querySelector('#wrapper');
+  var lastSlide = wrapper.lastChild;
+  while (lastSlide != null && lastSlide.nodeType !== 1) {
+    lastSlide = lastSlide.previousSibling;
+  }
+
+  wrapper.removeChild(lastSlide);
+  wrapper.insertBefore(lastSlide, wrapper.firstChild);
+
+  setCurrentProgress();
+  updateURL();
+}
+
+/**
+ * Takes the first slide and places it at the end.
+ */
+function goForward() {
+  var wrapper = document.querySelector('#wrapper');
+  var firstSlide = wrapper.firstChild;
+  while (firstSlide != null && firstSlide.nodeType !== 1) {
+    firstSlide = firstSlide.nextSibling;
+  }
+
+  wrapper.removeChild(firstSlide);
+  wrapper.appendChild(firstSlide);
+
+  setCurrentProgress();
+  updateURL();
+}
+
+/**
+ * Updates the current URL to include a hashtag of the current page number.
+ */
+function updateURL() {
+  window.history.replaceState({} , null, '#' + currentPage());
+}
+
+/**
+ * Returns the current page number of the presentation.
+ */
+function currentPage() {
+  return document.querySelector('#wrapper .slide').dataset.page;
+}
+
+/**
+ * Returns a NodeList of each .slide element.
+ */
+function allSlides() {
+  return document.querySelectorAll('#wrapper .slide');
+}
+
+/**
+ * Give each slide a "page" data attribute.
+ */
+function setPageNumbers() {
+  var wrapper = document.querySelector('#wrapper');
+  var pages   = wrapper.querySelectorAll('section');
+  var page;
+
+  for (var i = 0; i < pages.length; ++i) {
+    page = pages[i];
+    page.dataset.page = i;
+  }
+}
+
+/**
+ * Set the current progress indicator.
+ */
+function setCurrentProgress() {
+  var wrapper = document.querySelector('#wrapper');
+  var progressBar = document.querySelector('.progress-bar');
+
+  if (progressBar !== null) {
+    var pagesNumber    = wrapper.querySelectorAll('section').length;
+    var currentNumber  = parseInt(currentPage());
+    var currentPercent = pagesNumber === 1 ? 100 : 100 * currentNumber / (pagesNumber - 1);
+    progressBar.style.width = currentPercent.toString() + '%';
+  }
+}
+
+/**
+ * Go to the specified page of content.
+ */
+function goToPage(page) {
+  // Try to find the target slide.
+  var targetSlide = document.querySelector('#wrapper .slide[data-page="' + page + '"]');
+
+  // If it actually exists, go forward until we find it.
+  if (targetSlide) {
+    var numSlides = allSlides().length;
+
+    for (var i = 0; currentPage() != page && i < numSlides; i++) {
+      goForward();
+    }
+  }
+}
+
+window.onload = function () {
+
+  // Give each slide a "page" data attribute.
+  setPageNumbers();
+
+  // If the location hash specifies a page number, go to it.
+  var page = window.location.hash.slice(1);
+  if (page) goToPage(page);
+
+  document.onkeydown = function (e) {
+    var kc = e.keyCode;
+
+    // left, down, H, J, backspace - BACK
+    // up, right, K, L, space, enter - FORWARD
+    if (kc == 37 || kc == 40 || kc == 8 || kc == 72 || kc == 74) {
+      goBack();
+    } else if (kc == 38 || kc == 39 || kc == 13 || kc == 32 || kc == 75 || kc == 76) {
+      goForward();
+    }
+  }
+
+  if (document.querySelector('.next') && document.querySelector('.prev')) {
+    document.querySelector('.next').onclick = function (e) {
+      e.preventDefault();
+      goForward();
+    }
+
+    document.querySelector('.prev').onclick = function (e) {
+      e.preventDefault();
+      goBack();
+    }
+  }
+
+}
+
+</script>
+
+<!-- analytics -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31067858-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
 </html>
