@@ -224,6 +224,7 @@ pre > code {
     .book {
   text-align: center;
   position: absolute;
+  font-size: 20px;
   top: 10px;
   left: 0; right: 0;
   z-index: -1;
@@ -246,36 +247,187 @@ pre > code {
     <section class="slide"><h1>Rails Challenges</h1>
 
 <h2>How to help Ruby on Rails beginners</h2></section>
+    <section class="slide"><h1><a href="http://learn-rails.com/">learn-rails.com</a></h1>
+
+<h2>for a link to the presentation</h2></section>
     <section class="slide"><p><img src="http://learn-rails.com/images/learn-rails-book-cover.jpg" height="400px"></p></section>
-    <section class="slide"><h3>#1 It is difficult to install Ruby.</h3>
+    <section class="slide"><h3>Rails can be difficult for beginners</h3>
 
 <ul>
-<li>installing Ruby is the beginner's first big obstacle</li>
+<li>Rails is getting more complicated</li>
+<li>as mentors, we can help</li>
+</ul></section>
+    <section class="slide"><h3>Resistance</h3>
+
+<ul>
+<li>when we're tired and discouraged</li>
+<li>attaches to imaginary problems</li>
+<li>attaches to real problems</li>
+</ul></section>
+    <section class="slide"><h3>Overcoming resistance</h3>
+
+<ul>
+<li>acknowledge real problems</li>
+<li>scale down the magnitude of the problem</li>
+<li>provide resources and problem-solving approaches</li>
+</ul></section>
+    <section class="slide"><h3>1. It is difficult to install Ruby.</h3>
+
+<ul>
+<li>the beginner's first big obstacle</li>
 <li>not like installing a consumer app</li>
 <li>every system is unique</li>
-</ul></section>
-    <section class="slide"><h3>Not recommended</h3>
-
-<ul>
-<li>Rails Installer</li>
-<li>Tokaido (not yet)</li>
-<li>Windows (use Linux)</li>
 </ul></section>
     <section class="slide"><h3>Recommended</h3>
 
 <ul>
-<li>see the <a href="http://railsapps.github.io/installing-rails.html">install Rails</a> article, use RVM</li>
+<li>use RVM</li>
+<li>article on <a href="http://railsapps.github.io/installing-rails.html">installing Rails</a></li>
 <li>use <a href="https://www.nitrous.io/">Nitrous.io</a> when all else fails</li>
-<li>mentors: learn about the newest best options</li>
 </ul></section>
-    <section class="slide"></section>
+    <section class="slide"><h3>2. Rails is a nightmare on Windows.</h3>
+
+<ul>
+<li>open source devs use Unix-based tooling</li>
+<li>some gems won't work on Windows</li>
+</ul></section>
+    <section class="slide"><h3>Recommended</h3>
+
+<ul>
+<li>use <a href="https://www.nitrous.io/">Nitrous.io</a></li>
+<li>install the <a href="https://github.com/railsbridge-boston/railsbridge-virtual-machine">Railsbridge Virtual Machine</a></li>
+<li>or <a href="https://github.com/rails/rails-dev-box">rails-dev-box</a></li>
+</ul></section>
+    <section class="slide"><h3>3. Rails error reporting is cryptic.</h3>
+
+<ul>
+<li>stack traces are intimidating</li>
+<li>error messages are "too technical"</li>
+<li>why can't it be simpler?</li>
+</ul></section>
+    <section class="slide"><h3>Rails error reporting is actually very good.</h3>
+
+<ul>
+<li>provides all the details an experienced developer needs</li>
+<li>can't say what you did wrong, only what happened when you did it</li>
+<li>help beginners read stack traces</li>
+</ul></section>
+    <section class="slide"><h3>4. There is too much magic.</h3>
+
+<ul>
+<li>“convention over configuration” leads to obscurity</li>
+<li>implementation is hidden in the depths of the Rails</li>
+</ul></section>
+    <section class="slide"><h3>The magic is there to serve you.</h3>
+
+<ul>
+<li>do you like to know how things work?</li>
+<li>dig into the source code, or...</li>
+<li>take on faith that “it just works”</li>
+</ul></section>
+    <section class="slide"><h3>5. Rails contains lots of things I don’t understand.</h3>
+
+<ul>
+<li>so many files and folders</li>
+<li>code that is unfamiliar</li>
+<li>what parts do I need to know?</li>
+</ul></section>
+    <section class="slide"><h3>You'll gain understanding over time.</h3>
+
+<ul>
+<li>you don't need to know all of Rails</li>
+<li>experienced developers are always learning</li>
+</ul></section>
+    <section class="slide"><h3>6. There is too much to learn.</h3>
+
+<ul>
+<li>web development used to be simpler</li>
+<li>how do you keep up?</li>
+</ul></section>
+    <section class="slide"><h3>There is joy in learning.</h3>
+
+<ul>
+<li>lots of great resources we didn't have before</li>
+<li>your career will never be dull</li>
+<li>you can specialize</li>
+</ul></section>
+    <section class="slide"><h3>7. It is difficult to find up-to-date advice.</h3>
+
+<ul>
+<li>new major releases of Rails every 2 years</li>
+<li>Google or Stack Overflow advice can be out-of-date</li>
+</ul></section>
+    <section class="slide"><h3>Show beginners how to evaluate advice.</h3>
+
+<ul>
+<li>filter the results in Google</li>
+<li>check the dates in Stack Overflow</li>
+</ul></section>
+    <section class="slide"><h3>8. It is difficult to know what gems to use.</h3>
+
+<ul>
+<li>how do you find gems?</li>
+<li>which are best?</li>
+</ul></section>
+    <section class="slide"><h3>Gem discovery is an art.</h3>
+
+<ul>
+<li>use <a href="https://www.ruby-toolbox.com/">The Ruby Toolbox</a></li>
+<li>look at example applications</li>
+<li>monitor <a href="http://rubyweekly.com/">Ruby Weekly</a> and <a href="http://www.rubyflow.com/">RubyFlow</a></li>
+</ul></section>
+    <section class="slide"><h3>9. How to transition from tutorials to my own applications?</h3>
+
+<ul>
+<li>copy and pasting gets me started, but...</li>
+<li>how do I build from scratch?</li>
+</ul></section>
+    <section class="slide"><h3>Focus on the process.</h3>
+
+<ul>
+<li>start with user stories</li>
+<li>look for code samples</li>
+<li>try "spikes"</li>
+</ul></section>
+    <section class="slide"><h3>10. I’m not sure where the code goes.</h3>
+
+<ul>
+<li>does it go in the model or the controller?</li>
+<li>should all my controller actions be RESTful?</li>
+</ul></section>
+    <section class="slide"><h3>Get peer support.</h3>
+
+<ul>
+<li>read the blogs</li>
+<li>study examples</li>
+<li>go to hack nights</li>
+</ul></section>
+    <section class="slide"><h3>11. People like me don’t go into programming.</h3>
+
+<ul>
+<li>not every programmer looks like one</li>
+<li>not everyone has the same background</li>
+<li>being different can be challenging</li>
+</ul></section>
+    <section class="slide"><h3>We can be more welcoming.</h3>
+
+<ul>
+<li>as engineers, we can optimize for inclusion</li>
+<li>get a clue, we all have biases</li>
+<li>get involved with <a href="http://railsbridge.org/">Railsbridge</a> or <a href="http://railsgirls.com/">Rails Girls</a></li>
+</ul></section>
+    <section class="slide"><p><img src="http://learn-rails.com/images/rails-trucker-hat.jpg" height="210px"></p>
+
+<h2>how do you help beginners with Rails challenges?</h2>
+
+<h2>discuss!</h2></section>
     <section class="slide"><div class="author">
   <h1 class="name">Daniel Kehoe</h1>
   <h3 class="twitter">
     <a href="http://twitter.com/@rails_apps" tabindex="-1">@rails_apps</a>
   </h3>
   <h3 class="url">
-    <a href="http://railsapps.github.io/rails-challenges" tabindex="-1">http://railsapps.github.io/rails-challenges</a>
+    <a href="http://learn-rails.com" tabindex="-1">http://learn-rails.com</a>
   </h3>
 </div>
 </section>
@@ -287,7 +439,7 @@ pre > code {
 
 <div class="book">
   <div>
-    <p><em>Excerpted from the new book <a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a> by Daniel Kehoe</em></p>
+    <p><em>Excerpted from the new book <a href="http://learn-rails.com/learn-ruby-on-rails.html">Learn Ruby on Rails</a> by Daniel Kehoe at <a href="http://learn-rails.com/">learn-rails.com</a></em></p>
   </div>
 </div>
 
