@@ -14,8 +14,8 @@ template: gh-pages-template.mustache
 
 --
 
-# [learn-rails.com](http://learn-rails.com/)
-## for a link to the presentation
+# [railsapps.github.io/rails-challenges](http://railsapps.github.io/rails-challenges/)
+## for this slideshow
 
 --
 
