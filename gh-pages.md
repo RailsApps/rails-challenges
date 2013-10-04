@@ -14,7 +14,7 @@ template: gh-pages-template.mustache
 
 --
 
-# [railsapps.github.io/rails-challenges](http://railsapps.github.io/rails-challenges/)
+## [railsapps.github.io/rails-challenges](http://railsapps.github.io/rails-challenges/)
 ## for this slideshow
 
 --
