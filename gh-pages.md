@@ -2,43 +2,67 @@ title: Rails Challenges
 author:
   name: "Daniel Kehoe"
   twitter: "@rails_apps"
-  url: "http://learn-rails.com"
+  url: "http://railsapps.github.io/"
 output: index.html
-style: help.css
-template: gh-pages-template.mustache
 
 --
 
 # Rails Challenges
-## How to help Ruby on Rails beginners
+## Help for Ruby on Rails beginners
 
 --
 
-## [railsapps.github.io/rails-challenges](http://railsapps.github.io/rails-challenges/)
-## for this slideshow
+### Daniel Kehoe
+
+<img src="http://learn-rails.com/images/rails-trucker-hat.jpg" height="210px">
+
+## @rails_apps
+## Rails example applications
+## Rails Composer
 
 --
+### Hard skills and soft skills
 
 <img src="http://learn-rails.com/images/learn-rails-book-cover.jpg" height="400px">
+
+## http://learn-rails.com/students
 
 --
 
 ### Rails can be difficult for beginners
 
-* Rails is getting more complicated
-* as mentors, we can help
+* Rails is popular
+* Rails is powerful
+* but Rails isn’t easy to learn
 
 --
 
 ### Resistance
 
 * when we're tired and discouraged
+* when we're overwhelmed
+* doubts and negative thoughts
+
+--
+
+### Resistance
+
+* resistance makes learning more difficult
 * attaches to imaginary problems
 * attaches to real problems
 
 --
 
 ### Overcoming resistance
+
+* recognize resistance
+* break the problem down
+* investigate the obstacle
+* seek support
+
+--
+
+### If you're a mentor
 
 * acknowledge real problems
 * scale down the magnitude of the problem
@@ -48,16 +72,16 @@ template: gh-pages-template.mustache
 
 ### 1. It is difficult to install Ruby.
 
-* the beginner's first big obstacle
-* not like installing a consumer app
+* a beginner's first big obstacle
+* it's not like installing a consumer app
 * every system is unique
 
 --
 
 ### Recommended
 
-* use RVM
-* article on [installing Rails](http://railsapps.github.io/installing-rails.html)
+* use RVM to install Rails
+* see an article on [installing Rails](http://railsapps.github.io/installing-rails.html)
 * use [Nitrous.io](https://www.nitrous.io/) when all else fails
 
 --
@@ -71,6 +95,7 @@ template: gh-pages-template.mustache
 
 ### Recommended
 
+* offer alternatives to Windows users
 * use [Nitrous.io](https://www.nitrous.io/)
 * install the [Railsbridge Virtual Machine](https://github.com/railsbridge-boston/railsbridge-virtual-machine)
 * or [rails-dev-box](https://github.com/rails/rails-dev-box)
@@ -89,7 +114,7 @@ template: gh-pages-template.mustache
 
 * provides all the details an experienced developer needs
 * can't say what you did wrong, only what happened when you did it
-* help beginners read stack traces
+* learn to read stack traces
 
 --
 
@@ -125,16 +150,17 @@ template: gh-pages-template.mustache
 
 ### 6. There is too much to learn.
 
-* web development used to be simpler
+* why learning Rails is hard [(infographic)](https://dgosxlrnzhofi.cloudfront.net/custom_page_images/64/page_images/Rails_Competencies.png)
+* how do you learn it all?
 * how do you keep up?
 
 --
 
 ### There is joy in learning.
 
-* lots of great resources we didn't have before
 * your career will never be dull
 * you can specialize
+* lots of great resources we didn't have before
 
 --
 
@@ -145,9 +171,9 @@ template: gh-pages-template.mustache
 
 --
 
-### Show beginners how to evaluate advice.
+### Learn how to evaluate advice.
 
-* filter the results in Google
+* filter the results in [Google](https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=rails%20environment%20variables)
 * check the dates in Stack Overflow
 
 --
@@ -161,9 +187,9 @@ template: gh-pages-template.mustache
 
 ### Gem discovery is an art.
 
-* use [The Ruby Toolbox](https://www.ruby-toolbox.com/)
-* look at example applications
-* monitor [Ruby Weekly](http://rubyweekly.com/) and [RubyFlow](http://www.rubyflow.com/)
+* use [The Ruby Toolbox](https://www.ruby-toolbox.com/categories/rails_authorization)
+* look at example applications ([RailsApps](https://github.com/RailsApps))
+* monitor [RubyFlow](http://www.rubyflow.com/), [Ruby Weekly](http://rubyweekly.com/), [Green Ruby News](http://greenruby.org/)
 
 --
 
@@ -199,9 +225,9 @@ template: gh-pages-template.mustache
 
 ### 11. People like me don’t go into programming.
 
-* not every programmer looks like one
 * not everyone has the same background
 * being different can be challenging
+* not every programmer looks like one
 
 --
 
@@ -209,12 +235,19 @@ template: gh-pages-template.mustache
 
 * as engineers, we can optimize for inclusion
 * get a clue, we all have biases
-* get involved with [Railsbridge](http://railsbridge.org/) or [Rails Girls](http://railsgirls.com/)
+* get involved with peer support organizations
 
 --
 
 <img src="http://learn-rails.com/images/rails-trucker-hat.jpg" height="210px">
 
 ## how do you help beginners with Rails challenges?
-## discuss!
 
+--
+### Daniel Kehoe
+
+<img src="http://learn-rails.com/images/learn-rails-book-cover.jpg" height="400px">
+
+## http://learn-rails.com/students
+
+--
