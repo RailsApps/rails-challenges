@@ -234,7 +234,6 @@ output: index.html
 ### We can be more welcoming.
 
 * as engineers, we can optimize for inclusion
-* get a clue, we all have biases
 * get involved with peer support organizations
 
 --
